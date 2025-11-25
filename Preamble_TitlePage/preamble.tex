@@ -1,0 +1,176 @@
+\documentclass[a4paper,12pt]{article}
+
+%%% Работа с русским языком
+%\usepackage{DejaVuSans}
+\usepackage{cmbright}
+%\usepackage[OT1]{fontenc}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english]{babel}	% локализация и переносы
+\usepackage{indentfirst}            % красная строка в первом абзаце
+\usepackage{mathtext} 				% русские буквы в формулах
+\frenchspacing                      % равные пробелы между словами и предложениями
+
+
+
+%Добавлено:
+\usepackage{refcount} 				% перекрёстные ссылки внутри документа
+\usepackage{fixfoot,xspace}			% двойная ссылка
+\usepackage{tipa}					% греческие в тексте
+\usepackage{dcolumn}				% выравнивание по точке
+\usepackage{mhchem} 				% Оформление химических формул
+%\usepackage{acro}					% ведение списка сокращений
+%\AddAcroTranslations{Russian}{list-name = Список сокращений} 	% Что будет написано в заголовке
+\usepackage{caption}				% несколько рисунков
+\usepackage{subcaption}				% несколько рисунков
+\usepackage{gensymb}				% градусы цельсия
+\usepackage{multicol}				% Текст в две колонки
+\usepackage{siunitx}				% работа с цифрами
+\usepackage{wrapfig}				% обтекание рисунков текстом
+\usepackage[inline]{enumitem}		%Горизонтальный список, добавлется звёздочкой
+
+%Добавленные команды
+\newcommand{\grad}{~\celsius}
+
+% \makeatletter									%Подпись к рисункам Рисунок, вместо Рис
+% \renewcommand{\fnum@figure}{Рисунок \thefigure}
+% \makeatother
+% %\counterwithin{figure}{section}
+
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}	% отвечает за уровень списка
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\labelenumiv}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}}
+
+% \addto\captionsrussian{% Replace "english" with the language you use
+%   \renewcommand{\contentsname}{Table of Contents}}%%Подпись к оглавлению
+
+
+
+%%% Шаблонная информация для титульного листа
+\newcommand{\CourseName}{}
+\newcommand{\FullCourseNameFirstPart}{\so{}}
+\newcommand{\SemesterNumber}{}
+\newcommand{\LecturerInitials}{}
+\newcommand{\CourseDate}{2023}
+
+%%% Оформление страницы
+\usepackage{extsizes}     % Возможность сделать 14-й шрифт
+\usepackage{geometry}     % Простой способ задавать поля
+\usepackage{setspace}     % Интерлиньяж
+\usepackage{enumitem}     % Настройка окружений itemize и enumerate
+\setlist{leftmargin=25pt} % Отступы в itemize и enumerate
+
+\geometry{top=15mm}    % Поля сверху страницы
+\geometry{bottom=30mm} % Поля снизу страницы
+\geometry{left=15mm}   % Поля слева страницы
+\geometry{right=15mm}  % Поля справа страницы
+
+\setlength\parindent{15pt}        % Устанавливает длину красной строки
+\linespread{1.1}                  % Коэффициент межстрочного интервала
+%\setlength{\parskip}{0.2em}      % Вертикальный интервал между абзацами
+%\setcounter{secnumdepth}{0}      % Отключение нумерации разделов
+%\setcounter{section}{-1}         % Нумерация секций с нуля
+\usepackage{multicol}			  % Для текста в нескольких колонках
+\usepackage{soulutf8}             % Модификаторы начертания
+
+%%% Добавлено:
+\usepackage{parskip} % сам настроит интервалы нужным образом
+\setlength{\parindent}{0,8cm} % по умолчанию — 0
+
+%%% Колонтитулы
+\usepackage{titleps}
+\newpagestyle{main}{
+	\setheadrule{0pt}
+%	\sethead{\subsectiontitle}{}{\hyperlink{intro}{\;К содержанию}}
+	\setfootrule{0pt}                       
+	\setfoot{}{}{\thepage} 
+}
+\pagestyle{main} 
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % пакеты AMS
+\usepackage{icomma}                                    % "Умная" запятая
+
+%\newcommand{\dse}{\displaystyle}
+
+%%% Перенос знаков в формулах (по Львовскому)
+%\newcommand*{\hm}[1]{#1\nobreak\discretionary{}{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%%% Работа с картинками
+\usepackage{graphicx}    % Для вставки рисунков
+\setlength\fboxsep{3pt}  % Отступ рамки \fbox{} от рисунка
+\setlength\fboxrule{1pt} % Толщина линий рамки \fbox{}
+\usepackage{wrapfig}     % Обтекание рисунков текстом
+
+%%% Работа с таблицами
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+\usepackage{longtable}                        % Длинные таблицы
+\usepackage{multirow}                         % Слияние строк в таблице
+\usepackage{makecell}						% Перенос в ячейках строк
+%\usepackage{tablefootnote}					% Сноски в таблицах (работает плохо)
+\usepackage{booktabs,caption}				% Сноски под таблицей
+\usepackage[flushleft]{threeparttable}		% Сноски под таблицей
+
+
+%%% Теоремы
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}{Лемма}[section]
+\newtheorem{proposition}{Утверждение}[section]
+\newtheorem*{exercise}{Упражнение}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[section]
+\newtheorem*{adefinition}{Определение(не материал лектора)}
+\newtheorem*{corollary}{Следствие}
+\newtheorem*{addition}{Дополнение}
+\newtheorem*{note}{Замечание}
+\newtheorem*{anote}{Замечание автора}
+\newtheorem*{reminder}{Напоминание}
+\newtheorem{example}{Пример}
+\newtheorem*{examples}{Примеры}
+
+\theoremstyle{remark}
+\newtheorem*{solution}{Решение}
+
+
+ 
+
+% %%% Нумерация уравнений
+% \makeatletter
+% \def\eqref{\@ifstar\@eqref\@@eqref}
+% \def\@eqref#1{\textup{\tagform@{\ref*{#1}}}}
+% \def\@@eqref#1{\textup{\tagform@{\ref{#1}}}}
+% \makeatother                      % \eqref* без гиперссылки
+% \numberwithin{equation}  % Нумерация вида (номер_секции).(номер_уравнения)
+% \mathtoolsset{showonlyrefs=false} % Номера только у формул с \eqref{} в тексте.
+
+%%% Гиперссылки
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}
+\hypersetup{
+	unicode=true,            % русские буквы в раздела PDF
+	colorlinks=true,       	 % Цветные ссылки вместо ссылок в рамках
+	linkcolor=black!15!blue, % Внутренние ссылки
+	citecolor=green,         % Ссылки на библиографию
+	filecolor=magenta,       % Ссылки на файлы
+	urlcolor=NavyBlue,       % Ссылки на URL
+}
+
+%%% Графика
+\usepackage{tikz}        % Графический пакет tikz
+\usepackage{tikz-cd}     % Коммутативные диаграммы
+\usepackage{tkz-euclide} % Геометрия
+\usepackage{stackengine} % Многострочные тексты в картинках
+\usetikzlibrary{angles, babel, quotes, automata,arrows,calc,positioning}
+
+%%% Xlam
+%\usepackage{longtable}
+%\newcolumntype{d}[1]{D{.}{.}{#1}}
+%\usepackage{paratype}
+%\renewcommand{\thefootnote}{\alph{footnote}} % Делает сноски буквами
+
+
